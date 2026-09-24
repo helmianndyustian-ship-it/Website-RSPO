@@ -1,0 +1,559 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+        height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    background-color: #0b0b0b;
+}
+
+/* Hero Section dengan Background Hutan Sawit & Dark Overlay */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('img/Landing-Page.png') no-repeat center center/cover;
+    display: flex;
+    align-items: flex-start;      /* diubah dari center */
+    justify-content: space-between;
+    padding: 0 8%;
+}
+
+.tagline {
+    font-size: 22px; /* Sesuaikan ukuran teks agar lebih kecil dari teks utama */
+    color: #ffffff; /* Sesuaikan warna teks agar selaras dengan logo */
+    margin-top: 2px; /* Memberi jarak antara logo dan teks */
+    font-weight: 500; /* Mengatur ketebalan huruf */
+    margin-left: 14px;
+}
+
+.left-content {
+    max-width: 520px;
+    padding-top: 40px;           /* ganti margin-top: -240px; dengan ini */
+    z-index: 2;
+}
+
+/* Mengatur ukuran gambar logo agar pas di layar */
+.logo-img {
+    width: 300px;   /* Ubah angka ini untuk memperbesar atau memperkecil logo (misal: 180px, 220px, 260px) */
+    height: auto;   /* Menjaga proporsi gambar agar tidak gepeng */
+    margin-top: -20px; /* Atur jarak atas jika ingin digeser naik/turun */;   
+    display: block;
+}
+
+
+.logo-container {
+    margin-bottom: 210px;
+}
+.logo-box {
+    background: rgba(255, 255, 255, 0.95);
+    color: #111;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    display: inline-block;
+    border-radius: 4px;
+    border-left: 5px solid #cc2b2b;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.left-content h1 {
+    font-size: 130px;
+    font-weight: 900;
+    margin-top: 100px;
+    line-height: 0.92;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.6);
+}
+.subtitle-box {
+    display: inline-block;
+    border-bottom: 5px solid #b92025;
+    margin-top: -100px;
+    padding-bottom: 10px;
+}
+.left-content p {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- SISI KANAN (DIAGRAM LINGKARAN DEMPET / OVERLAPPING) --- */
+.right-diagram {
+    position: relative;
+    width: clamp(380px, 45vw, 600px);
+    height: clamp(380px, 45vw, 600px);
+    display: flex;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Bulatan Abu-Abu di Sela Diagonal */
+.diag-circle {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background-color: rgba(180, 185, 190, 0.35);
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+.diag-circle.gray-hidden {
+    opacity: 0;
+}
+
+/* Garis Putih (Outline) Tepat di Atas Bulatan Abu-Abu */
+.diag-outline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160%;
+    height: 160%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: 0.1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pos-diag-tl { top: 110px; left: 110px; }
+.pos-diag-tr { top: 110px; right: 110px; }
+.pos-diag-br { bottom: 110px; right: 110px; }
+.pos-diag-bl { bottom: 110px; left: 110px; }
+
+/* SVG Panah Melingkar */
+.diagram-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    pointer-events: none;
+}
+
+p {
+margin-top: 10px;
+}
+.arrow-btn {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* ==========================================================
+   BUBBLE KETERANGAN — MASING-MASING PUNYA CLASS TERPISAH
+   ========================================================== */
+
+/* Bubble TL (Kiri Atas) */
+.bubble-tl {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.97);
+    color: #0b2a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    text-align-last: center;
+    font-size: 10px;
+    padding: 10px 110px 50px 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: scale(0.6);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+    top: 14px;
+    left: 14px;
+}
+.bubble-tl.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Bubble TR (Kanan Atas) */
+.bubble-tr {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.97);
+    color: #0b2a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    text-align-last: center;
+    font-size: 10px;
+    padding: 10px 30px 60px 110px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: scale(0.6);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+    top: 14px;
+    right: 14px;
+}
+.bubble-tr.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Bubble BR (Kanan Bawah) */
+.bubble-br {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.97);
+    color: #0b2a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    text-align-last: center;
+    font-size: 10px;
+    padding: 120px 40px 60px 110px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: scale(0.6);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+    bottom: 14px;
+    right: 14px;
+}
+.bubble-br.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Bubble BL (Kiri Bawah) */
+.bubble-bl {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.97);
+    color: #0b2a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    text-align-last: center;
+    font-size: 10px;
+    padding: 110px 110px 60px 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: scale(0.6);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+    bottom: 14px;
+    left: 14px;
+}
+.bubble-bl.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Lingkaran Pusat (Live Palm) */
+.center-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(120px, 12vw, 180px);
+    height: clamp(120px, 12vw, 180px);
+    background: white;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 18px;
+    z-index: 4;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.center-node h3 {
+    font-size: 1.15rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #202f64;
+}
+.center-node p {
+    font-size: 0.55rem;
+    line-height: 1.3;
+    color: #202f64;
+    font-weight: 500;
+}
+
+/* Wrapper Node Luar */
+.node-wrapper {
+    position: absolute;
+    width: clamp(160px, 18vw, 246px);
+    height: clamp(160px, 18vw, 246px);
+    z-index: 3;
+}
+
+/* Pengaturan Dasar Outer Node */
+.outer-node {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 12px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+    z-index: 3;
+}
+
+.oc-icon-node {
+    width: 60px;
+    height: 60px;
+    display: block;
+    object-fit: contain;
+}
+
+.outer-node:hover {
+    transform: scale(1.03);
+}
+
+/* Style dasar teks di dalam node, dipakai semua OC kalau gak di-override */
+
+
+/* ==========================================================
+   ANDA BISA MENGUBAH BACKGROUND & WARNA TEKS MASING-MASING NODE DI BAWAH INI:
+   ========================================================== */
+
+/* OC 1 (Atas) */
+.oc1-node {
+    background-image: 
+        linear-gradient(to top, 
+            rgba(15, 45, 95, 1) 0%, 
+            rgba(15, 45, 95, 0.9) 40%, 
+            rgba(15, 45, 95, 0.5) 75%, 
+            transparent 100%),
+        url('img/oc11.png');
+    background-size: 100% 70%, cover;
+    background-position: bottom, center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+/* Teks khusus OC 1 (edit di sini tanpa ngaruh ke OC lain) */
+.oc1-node .oc-text {
+    font-size: 0.8rem;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-left: 40px;
+        text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+/* OC 2 (Kanan) */
+.oc2-node {
+    background-image: 
+        linear-gradient(to top, 
+            rgba(15, 45, 95, 1) 0%, 
+            rgba(15, 45, 95, 0.9) 40%, 
+            rgba(15, 45, 95, 0.5) 75%, 
+            transparent 100%),
+        url('img/OC2.png');
+    background-size: 100% 70%, cover;
+    background-position: bottom, center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+/* Teks khusus OC 2 (edit di sini tanpa ngaruh ke OC lain) */
+.oc2-node .oc-text {
+ font-size: 0.8rem;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-left: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+/* OC 3 (Bawah) */
+.oc3-node {
+    background-image: 
+        linear-gradient(to top, 
+            rgba(15, 45, 95, 1) 0%, 
+            rgba(15, 45, 95, 0.9) 40%, 
+            rgba(15, 45, 95, 0.5) 75%, 
+            transparent 100%),
+        url('img/OC3.png');
+    background-size: 100% 70%, cover;
+    background-position: bottom, center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+/* Teks khusus OC 3 (edit di sini tanpa ngaruh ke OC lain) */
+.oc3-node .oc-text {
+     font-size: 0.8rem;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-left: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+/* OC 4 (Kiri) */
+.oc4-node {
+      background-image: 
+        linear-gradient(to top, 
+            rgba(15, 45, 95, 1) 0%, 
+            rgba(15, 45, 95, 0.9) 40%, 
+            rgba(15, 45, 95, 0.5) 75%, 
+            transparent 100%),
+        url('img/OC4.png');
+    background-size: 100% 70%, cover;
+    background-position: bottom, center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+/* Teks khusus OC 4 (edit di sini tanpa ngaruh ke OC lain) */
+.oc4-node .oc-text {
+       font-size: 0.8rem;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-left: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+/* ========================================================== */
+
+/* Badge Merah (OC 1 - OC 4) Menjadi Bulat */
+.badge-oc {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background-color: #b92025;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    z-index: 5;
+    letter-spacing: 0.5px;
+}
+
+/* POSISI SANGAT RAPAT / BERTUMPUK (MEPET) */
+.pos-oc1 { top: 10px; left: 50%; transform: translateX(-50%); }
+.pos-oc1 .badge-oc { top: -6px; left: 50%; transform: translateX(-50%); }
+
+.pos-oc2 { top: 50%; right: 10px; transform: translateY(-50%); }
+.pos-oc2 .badge-oc { top: 50%; right: -6px; transform: translateY(-50%); }
+
+.pos-oc3 { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.pos-oc3 .badge-oc { bottom: -6px; left: 50%; transform: translateX(-50%); }
+
+.pos-oc4 { top: 50%; left: 10px; transform: translateY(-50%); }
+.pos-oc4 .badge-oc { top: 50%; left: -6px; transform: translateY(-50%); }
+
+/* Responsive Design untuk Mobile */
+@media (max-width: 968px) {
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .left-content {
+        max-width: 100%;
+        padding-top: 0;
+        margin-bottom: 50px;
+    }
+
+    .left-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .right-diagram {
+        width: 350px;
+        height: 350px;
+    }
+
+    .center-node {
+        width: 120px;
+        height: 120px;
+    }
+
+    .node-wrapper {
+        width: 145px;
+        height: 145px;
+    }
+
+    .pos-oc1 { top: 5px; left: 50%; transform: translateX(-50%); }
+    .pos-oc2 { top: 50%; right: 5px; transform: translateY(-50%); }
+    .pos-oc3 { bottom: 5px; left: 50%; transform: translateX(-50%); }
+    .pos-oc4 { top: 50%; left: 5px; transform: translateY(-50%); }
+
+    .outer-node {
+        font-size: 0.55rem;
+        padding: 12px;
+    }
+
+    .diag-circle {
+        width: 90px;
+        height: 90px;
+    }
+
+    .pos-diag-tl { top: 90px; left: 90px; }
+    .pos-diag-tr { top: 90px; right: 90px; }
+    .pos-diag-br { bottom: 90px; right: 90px; }
+    .pos-diag-bl { bottom: 90px; left: 90px; }
+
+    .bubble-tl, .bubble-tr, .bubble-br, .bubble-bl {
+        width: 110px;
+        height: 110px;
+        font-size: 0.6rem;
+        padding: 10px;
+    }
+}
