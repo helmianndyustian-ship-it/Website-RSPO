@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9e9e9;
+}
+
+/* ===== HERO FOTO ATAS ===== */
+.regen-hero {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.55)),
+                url(../../img/Petani\ 1.png) no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+    color: #ffffff;
+}
+
+.regen-hero-logo {
+    position: absolute;
+    top: 25px;
+    left: 6%;
+}
+.regen-hero-logo img {
+    width: 130px;
+    height: auto;
+    display: block;
+}
+
+.regen-hero-text {
+    padding-top: 200px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.regen-hero-text h1 {
+    font-size: 60px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.regen-hero-line {
+    width: 220px;
+    height: 4px;
+    background-color: #cc2b2b;
+    margin-top: 20px;    /* Mengatur jarak ke elemen di atasnya */
+    margin-bottom: 14px; /* Mengatur jarak ke elemen di bawahnya */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.regen-hero-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* ===== SECTION KARTU BIRU ===== */
+.regen-cards-section {
+    background-color: #e9e9e9;
+    padding: 60px 6% 40px 6%;
+}
+
+.regen-cards-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.regen-card {
+    position: relative;
+    background-color: #14305c;
+    border-radius: 12px;
+    width: 260px;
+    padding: 45px 20px 20px 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.regen-card-icon {
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 140px;
+    background-color: #14305c;
+    border: 4px solid #e9e9e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.regen-card-icon img {
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+}
+
+.regen-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 14px 0 10px 0;
+}
+
+.regen-card p {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    font-weight: 500;
+}
+.regen-card p strong {
+    font-weight: 800;
+}
+
+/* ===== KARTU PUTIH BAWAH ===== */
+.regen-bottom-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 3px solid #b4b4b4; /* Ganti angka 2px untuk ketebalan, dan #dcdcdc untuk warna garisnya */
+    
+}
+
+/* Pembungkus foto dijadikan relative agar aksen merah bisa menempel */
+.regen-bottom-photo {
+    position: relative;
+    flex-shrink: 0;
+    width: 480px;
+    height: auto;
+    border-radius: 24px;
+    /* overflow: hidden; -> Hapus atau beri tanda komentar seperti ini agar tidak memotong aksen merah */
+}
+/* Styling untuk aksen merah di sisi kanan foto */
+.regen-bottom-photo-accent {
+    position: absolute;
+    top: 20%; /* Menyesuaikan posisi turun dari atas */
+    right: -10px; /* Menempel di sisi kanan luar foto */
+    left: auto; /* Membatalkan pengaturan kiri */
+    width: 24px; /* Lebar aksen merah */
+    height: 90px; /* Tinggi aksen merah */
+    background-color: #cc2b2b; /* Warna merah */
+    border-radius: 20px; /* Membuat sudutnya melengkung */
+    box-shadow: -4px 6px 14px rgba(0,0,0,0.3); /* Efek bayangan (arah bayangan disesuaikan ke kiri) */
+    z-index: 12; /* Memastikan posisinya di atas foto */
+}
+
+.regen-bottom-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px;
+}
+
+.regen-bottom-text {
+    flex: 1;
+    
+}
+
+.regen-bottom-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+.regen-bottom-accent {
+    width: 8px;
+    height: 26px;
+    background-color: #cc2b2b;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.regen-bottom-heading h2 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #14305c;
+
+}
+
+/* ===== TOMBOL BACK POJOK KANAN ATAS ===== */
+.detail-back {
+    position: absolute;
+    top: 30px;
+    right: 40px; 
+    z-index: 10; /* Pastikan berada di lapisan paling atas */
+    width: 60px; 
+    height: 60px; 
+    background: transparent; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.detail-back:hover { 
+    transform: scale(1.08); 
+}
+
+/* Mengatur ukuran ikon panah di dalam tombol */
+.detail-back img { 
+    width: 50px; /* Sesuaikan ukuran besar kecilnya ikon panah */
+    height: auto; 
+    display: block;
+}
+
+.regen-bottom-subtitle {
+    font-style: italic;
+    font-size: 1rem;
+    color: #14305c;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.regen-bottom-desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #14305c;
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 968px) {
+    .regen-hero {
+        height: auto;
+        padding: 60px 6% 40px 6%;
+    }
+    .regen-hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .regen-cards-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .regen-card {
+        width: 100%;
+        max-width: 320px;
+    }
+    .regen-bottom-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .regen-bottom-photo {
+        width: 100%;
+        height: 200px;
+    }
+    .regen-bottom-heading {
+        justify-content: center;
+    }
+}

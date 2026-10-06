@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OC 1 Layer 2 - Farmer Capacity Regenerative Practices</title>
+<link rel="stylesheet" href="../OC1/oc1-layer2.css">
+</head>
+<body>
+
+    <section class="layer-section">
+        <a href="../index.bahasa.html" class="page-back">
+    <img src="../../img/icon-back.png" alt="Kembali">
+</a>
+       <div class="page-logo">
+        <a href="../index.bahasa.html">
+        <img src="../../img/Logo WEI horizontal.png" alt="Logo Widya Erti Indonesia">
+            </a>
+    </div>
+
+        <div class="layer-title-box">
+            <div class="layer-title-line"></div>
+            <h1>Kapasitas Petani dalam <br> Praktik Regeneratif</h1>
+        </div>
+
+        <div class="card-row">
+            <div class="oc-card">
+                <div class="oc-icon"> <img src="../../img/Icon1.png" alt=" Improved Farming" class="oc-icon-img"> </div>
+                <h3>Meningkatnya Penerapan Praktik Pertanian Regeneratif</h3>
+<!-- Ubah kode Anda menjadi seperti ini: -->
+                <a href="../../Bahasa-Indonesia/OC1/OC1-Impact1.html"> <button class="oc-more">More....</button> </a>  </div>
+
+            <div class="oc-card">
+                <div class="oc-icon"> <img src="../../img/Icon2.png" alt=" Improved Farming" class="oc-icon-img"> </div>
+                <h3>Meningkatnya Produktivitas dan Peluang Penghidupan</h3>
+              <a href="../../Bahasa-Indonesia/OC1/OC1-Impact2.html"> <button class="oc-more">More....</button></a> 
+            </div>
+
+            <div class="oc-card">
+                <div class="oc-icon"> <img src="../../img/Icon3.png" alt=" Improved Farming" class="oc-icon-img"> </div>
+                <h3>Menguatnya Komitmen Petani terhadap Keberlanjutan</h3>
+              <a href="../../Bahasa-Indonesia/OC1/OC1-Impact3.html">  <button class="oc-more">More....</button></a>
+            </div>
+        </div>
+    </section>
+<section class="photo-section">
+    <img src="../../img/Petani 1.png" alt="Deskripsi foto" class="photo-full">
+    <div class="photo-overlay-text">
+        <h2>Pertanian Regeneratif</h2>
+        <p>Pertanian regeneratif lebih dari sekedar mempertahankan produktivitas, tetapi juga mengembalikan kesehatan tanah, memperkuat ekosistem, dan meningkatkan ketahanan sistem pertanian. Melalui Sekolah Lapangan, petani didukung untuk menerapkan praktik yang menguntungkan bagi lahan pertanian dan juga lingkungan. 
+.</p>
+       <a href="Regenerative Agriculture.html"> <button class="photo-more">More....</button></a>
+    </div>
+</section>
+
+<section class="stats-section">
+    <div class="stats-left">
+        <div class="stats-photo">
+            <img src="../../img/Sawit1.png" alt="Petani terlatih">
+            <div class="stats-overlay">
+                <div class="stats-number">12,200+</div>
+                <div class="stats-label">FARMERS TRAINED</div>
+                <div class="stats-bar">
+<img src="../../img/dots-stats.png" alt="Icon" class="stats-dot-img">                    <strong>1,776</strong> in Indragiri Hulu
+                </div>
+                <div class="stats-bar">
+<img src="../../img/dots-stats.png" alt="Icon" class="stats-dot-img">               
+                    <strong>1,125</strong> in Rokan Hulu and Rokan Hilir
+                </div>
+            </div>
+        </div>
+<div class="stats-caption">
+    <div class="stats-caption-box">
+        Membekali petani dengan pengetahuan dan keterampilan untuk menerapkan praktik regeneratif dan berkelanjutan.
+    </div>
+</div>
+    </div>
+
+     <div class="stats-right">
+    <div class="quote-card">
+        <img src="../../img/quotes-open.png" alt="Quote" class="quote-icon-img-open">
+
+        <button class="quote-arrow quote-arrow-left" id="quotePrev" aria-label="Sebelumnya">&#10094;</button>
+
+        <div class="quote-slider" id="quoteSlider">
+            <div class="quote-slide active" data-photo="../../img/Tokoh 1.png">
+                <p class="quote-text">“Menjadi petani kelapa sawit bukan hanya mengejar hasil, tetapi juga tentang menjaga lingkungan untuk generasi yang akan datang” <br> — Nurhadi, Kilang Jaya Farmer Group</p>
+            </div>
+            <div class="quote-slide" data-photo="../img/Tokoh 2.png">
+                <p class="quote-text">" Bagi saya, sekolah lapangan kelapa sawit membuka cara pandang baru tentang bertani. Dulu saya berfikir bertani hanya mengikuti kebiasaan orang tua, tetapi disini saya belajar bahwa bertani juga membutuhkan ilmu dan perencanaan"
+<br>
+— Ranti Ningsih, Sawit Mentawai Jaya
+</p>
+            </div>
+            <div class="quote-slide" data-photo="../img/Tokoh 3.png">
+                <p class="quote-text">"Dengan adanya SL, kami merasa senang dan dapat meningkatkan hasil produksi sawit kami dan mendapatkan ilmu-ilmu yang selama ini belum kami dapatkan. Terima kasih semoga kegiatan ini terus berlanjut".
+<br>
+— Ngatijan, Koperasi Pertama Erti Utama
+</p>
+            </div>
+        </div>
+
+        <button class="quote-arrow quote-arrow-right" id="quoteNext" aria-label="Berikutnya">&#10095;</button>
+
+        <div class="quote-line"></div>
+        <img src="../../img/quotes-close.png" alt="Quote" class="quote-icon-img-close">
+
+        <img id="quotePhoto" src="../img/Tokoh 1.png" alt="Petani" class="quote-photo">
+        <div class="quote-decor-circle"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var slides = document.querySelectorAll('#quoteSlider .quote-slide');
+        var photo = document.getElementById('quotePhoto');
+        var prevBtn = document.getElementById('quotePrev');
+        var nextBtn = document.getElementById('quoteNext');
+        var current = 0;
+        var timer;
+
+        function showSlide(index) {
+            slides.forEach(function (slide) {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+
+            var newPhoto = slides[index].getAttribute('data-photo');
+            photo.classList.add('fading');
+            setTimeout(function () {
+                photo.src = newPhoto;
+                photo.classList.remove('fading');
+            }, 300);
+        }
+
+        function goNext() {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        }
+
+        function goPrev() {
+            current = (current - 1 + slides.length) % slides.length;
+            showSlide(current);
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timer = setInterval(goNext, 6000);
+        }
+
+        nextBtn.addEventListener('click', function () {
+            goNext();
+            resetTimer();
+        });
+
+        prevBtn.addEventListener('click', function () {
+            goPrev();
+            resetTimer();
+        });
+
+        resetTimer();
+    });
+</script>
+
+</body>
+</html>
